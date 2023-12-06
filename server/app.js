@@ -4,7 +4,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var debug = require('debug')('dwpcii:server');
+import debug from './services/debugLogger';
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -25,7 +25,7 @@ const nodeEnviroment = process.env.NODE_ENV || 'production'
 // Deciding if we add webpack middleware or not
 if(nodeEnviroment === 'development'){
   // Start Webpack dev server
-  console.log("🛠️ Ejecutando en modo desarrollo 🛠️");
+  debug("🛠️ Ejecutando en modo desarrollo 🛠️");
   // Adding the key "mode" with its value "development"
   webpackConfig.mode = nodeEnviroment;
   // Setting the dev server port to the same value as the express server
