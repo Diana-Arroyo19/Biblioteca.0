@@ -6,7 +6,7 @@
     "start": "node ./dist/bin/www",
     "dev": "DEBUG=biblioteca.0:server && babel-watch ./server/bin/www",
     "build": "npm run clean && babel ./server --out-dir dist --copy-files",
-    "devc" : "NODE_ENV=development webpack serve --config ./webpack.config.js --mode development",
+    "devc" : "NODE_ENV=development webpack serve --config ./webpack.dev.config.js --mode development",
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
