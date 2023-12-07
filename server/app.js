@@ -6,13 +6,14 @@ import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 // Setting Webpack Modules
 import webpack from 'webpack';
+
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
 
 // Importing template-engine
 import configTemplateEngine from './config/templateEngine';
 
-// Importing webpack configuration
+// Importing webpack xd
 import webpackConfig from '../webpack.dev.config';
 
 // Impornting winston logger
