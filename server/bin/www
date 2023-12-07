@@ -7,7 +7,7 @@ import Debug from 'debug';
 import http from 'http';
 import app from '../app';
 
-const debug = Debug('dwpcii:server');
+const debug = Debug('biblioteca.0:server');
 
 /**
  * Normalize a port into a number, string, or false.
