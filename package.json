@@ -17,14 +17,13 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-handlebars": "^7.1.2",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
     "materialize-css": "^1.0.0",
     "morgan": "~1.9.1",
     "webpack": "^5.76.1",
-    "webpack-dev-middleware": "^6.1.1",
-    "webpack-hot-middleware": "^2.25.4",
-    "winston": "^3.11.0"
+    "winston": "^3.8.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.22.15",
@@ -44,6 +43,8 @@
     "eslint-webpack-plugin": "^4.0.1",
     "mini-css-extract-plugin": "^2.7.6",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-middleware": "^6.0.2",
+    "webpack-dev-server": "^4.11.1",
+    "webpack-hot-middleware": "^2.25.3"
   }
 }
