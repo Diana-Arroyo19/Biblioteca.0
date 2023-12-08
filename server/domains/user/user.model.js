@@ -93,6 +93,10 @@ UserSchema.methods = {
       updatedAt: this.updatedAt,
     };
   },
+  // Verifica el password
+  authenticateUser(password) {
+    return bcrypt.compareSync(password, this.password);
+  },
 };
 // Hooks
 UserSchema.pre('save', function presave(next) {

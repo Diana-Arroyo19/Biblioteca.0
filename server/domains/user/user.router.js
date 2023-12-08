@@ -2,6 +2,9 @@ import { Router } from 'express';
 import userController from './user.controller';
 import userValidator from './user.validator';
 import ValidateFactory from '../../services/validateFactory';
+// Importando middleware de autenticación passport
+// de estrategia local
+import { authLocal } from '../../services/auth.services';
 
 const router = new Router();
 
@@ -20,4 +23,6 @@ router.put(
 );
 router.post('/registerPost', userController.searchUserPost);
 
+// POST user/login
+router.post('/login', authLocal);
 export default router;

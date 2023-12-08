@@ -8,6 +8,8 @@ import methodOverride from 'method-override';
 import path from 'path';
 // Helps to parse client cookies
 import cookieParser from 'cookie-parser';
+// Importando Passport
+import passport from 'passport';
 // Library to log http communication
 import morgan from 'morgan';
 
@@ -83,6 +85,11 @@ app.use(cookieParser());
 app.use(methodOverride('_method'));
 // Habilitando manejo de sesiones y mensajes flash
 configSession(app);
+// Agrendo middleware de passport
+app.use(passport.initialize());
+// Agregando el middleware de passport
+// para el manejo de sesiones
+app.use(passport.session());
 // Set up the static file server
 app.use(express.static(path.join(__dirname, '../public')));
 
