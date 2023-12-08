@@ -1,59 +1,59 @@
 <div>
-  <h1 class='hedaer center teal-text text-darken-4'>Registro</h1>
+  <h1 class='hedaer center'>Registro</h1>
 </div>
 <div class='row'>
   <form action='/user/register' method='post' class='col s12 card z-depth-3'>
     <div class='row'>
       <div class='input-field col s12 m6'>
-        <i class='material-icons prefix'>
-          account_circle
-        </i>
-        <input name='firstName' id='firstName' type='text' class='validate' />
-        <label for='firstName'>
-          Nombres
-        </label>
+        <i class='material-icons prefix'>account_circle</i>
+        <input name='fullname' id='fullname' type='text' class='validate' />
+        <label for='fullname'>Nombre Completo</label>
       </div>
       <div class='input-field col s12 m6'>
-        <input name='lastname' id='lastname' type='text' class='validate' />
-        <label for='lastname'>
-          Apellidos
-        </label>
-      </div>
-    </div>
-    <div class='row'>
-      <div class='input-field col s12 m6'>
-        <i class='material-icons prefix'>
-          code
-        </i>
+        <i class='material-icons prefix'>code</i>
         <input
           name='studentCode'
           id='studentCode'
           type='number'
           class='validate'
         />
-        <label for='studentCode'>
-          Codigo de Estudiante
-        </label>
+        <label for='studentCode'>Codigo de Estudiante</label>
       </div>
     </div>
     <div class='row'>
       <div class='input-field col s12 m6'>
-        <i class='material-icons prefix'>
-          gps_fixed
-        </i>
+        <i class='material-icons prefix'>gps_fixed</i>
         <input name='grade' id='grade' type='number' class='validate' />
-        <label for='grade'>
-          Grado
-        </label>
+        <label for='grade'>Grado</label>
       </div>
       <div class='input-field col s12 m6'>
-        <i class='material-icons prefix'>
-          location_on
-        </i>
+        <i class='material-icons prefix'>location_on</i>
         <input name='section' id='section' type='text' class='validate' />
-        <label for='section'>
-          Sección
-        </label>
+        <label for='section'>Sección</label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field col s12 m6'>
+        <i class='material-icons prefix'>email</i>
+        <input name='mail' id='email' type='email' class='validate' />
+        <label for='email'>Correo Electronico</label>
+      </div>
+      <div class='input-field col s12 m6'>
+        <i class='material-icons prefix'>password</i>
+        <input name='password' id='password' type='password' class='validate' />
+        <label for='password'>Contraseña</label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='input-field col s12 m6'>
+        <i class='material-icons prefix'>password</i>
+        <input
+          name='cpassword'
+          id='confirm-password'
+          type='password'
+          class='validate'
+        />
+        <label for='confirm-password'>Confirmar contraseña</label>
       </div>
     </div>
     <div class='row center-align'>

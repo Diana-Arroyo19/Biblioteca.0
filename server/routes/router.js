@@ -5,6 +5,7 @@ import aboutRouter from '../domains/about/about.router';
 import projectRouter from '../domains/book/book.router';
 import reportRouter from '../domains/reports/report.router';
 import finesRouter from '../domains/fines/fines.router';
+import loansRouter from '../domains/loans/loans.router';
 
 // Función que agrega rutas
 const addRoutes = (app) => {
@@ -15,6 +16,7 @@ const addRoutes = (app) => {
   app.use('/book', projectRouter);
   app.use('/report', reportRouter);
   app.use('/fines', finesRouter);
+  app.use('/loans', loansRouter);
   return app;
 };
 
