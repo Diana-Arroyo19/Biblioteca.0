@@ -30,7 +30,7 @@ const UserSchema = new Schema(
           // eslint-disable-next-line no-useless-escape
           return /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/.test(mail);
         },
-        message: `{VALUE} noes un email valido`,
+        message: '{VALUE} noes un email valido',
       },
     },
     password: {
