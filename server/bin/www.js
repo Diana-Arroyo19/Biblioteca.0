@@ -8,6 +8,13 @@ import http from 'http';
 import app from '../app';
 // Importing winston logger
 import log from '../config/winston';
+
+// Importing configuration keys
+import configKeys from '../config/configKeys';
+
+// Importing db connection function
+import connectWithRetry from '../database/mongooseConnection';
+
 /**
  * Normalize a port into a number, string, or false.
  */
@@ -31,7 +38,7 @@ function normalizePort(val) {
 /**
  * Get port from environment and store in Express.
  */
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || configKeys.PORT);
 app.set('port', port);
 
 /**
@@ -74,6 +81,9 @@ function onListening() {
   const bind = typeof addr === 'string' ? `pipe ${addr}` : `port ${addr.port}`;
   log.info(`📢 Listening on ${bind}`);
 }
+
+// Launching db connection
+connectWithRetry(configKeys.MONGO_URL);
 
 /**
  * Listen on provided port, on all network interfaces.
