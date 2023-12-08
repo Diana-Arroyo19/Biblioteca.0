@@ -23,10 +23,8 @@ router.put(
 );
 router.post('/registerPost', userController.searchUserPost);
 
-<<<<<<< HEAD
 // POST user/login
 router.post('/login', authLocal);
-=======
 // GET 'user/confirm/<token>'
 router.get(
   '/confirm/:token',
@@ -34,5 +32,4 @@ router.get(
   userController.confirm,
 );
 
->>>>>>> bcb839772ba243db388917ce75adb402d01f345c
 export default router;

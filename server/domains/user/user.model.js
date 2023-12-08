@@ -94,12 +94,10 @@ UserSchema.methods = {
       updatedAt: this.updatedAt,
     };
   },
-<<<<<<< HEAD
   // Verifica el password
   authenticateUser(password) {
     return bcrypt.compareSync(password, this.password);
   },
-=======
   // Metodo para activar el usuario
   async activate() {
     await this.updateOne({
@@ -115,7 +113,6 @@ UserSchema.statics.findByToken = async function findByToken(token) {
   // This hace referencia al modelo es decir
   // a todo el conjunto de documentos
   return this.findOne({ emailConfirmationToken: token });
->>>>>>> bcb839772ba243db388917ce75adb402d01f345c
 };
 // Hooks
 UserSchema.pre('save', function presave(next) {

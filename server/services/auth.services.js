@@ -11,7 +11,6 @@ import User from '../models/User';
 const localOptions = {
   usernameField: 'mail',
 };
-
 // Creando la instancia de la estrategia local
 const localStrategy = new LocalStrategy(
   localOptions,
