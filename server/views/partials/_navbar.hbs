@@ -1,17 +1,43 @@
-<nav>
-<!-- Dropdow para menu "Projectos" -->
-<ul id='dropdownMenu' class='dropdown-content'>
+<!-- Dropdow para menu "Libros" -->
+<ul id='dropdownMenu-others' class='dropdown-content'>
   <li>
-    <a href='/projects'>
+    <a href='/about'>
       <i class='large material-icons' style='margin: 2px;'>
-        list
+        business
       </i>
-      Listar Proyectos
+      Acerda de
     </a>
   </li>
   <li class='divider'></li>
   <li>
-    <a href='/projects/add'>
+    <a href='/report/download'>
+      <i class='large material-icons' style='margin: 2px;'>
+        download
+      </i>
+      Descargar reporte
+    </a>
+  </li>
+  <li class='divider'></li>
+  <li>
+    <a href='/fines/toList'>
+      <i class='large material-icons' style='margin: 2px;'>
+        error
+      </i>
+      Multas
+    </a>
+  </li>
+</ul>
+<!-- Dropdow para menu "Libros" -->
+<ul id='dropdownMenu' class='dropdown-content'>
+  <li>
+    <a href='/book'>
+      <i class='large material-icons' style='margin: 2px;'>
+        list
+      </i>
+  </li>
+  <li class='divider'></li>
+  <li>
+    <a href='/book/add'>
       <i class='large material-icons' style='margin: 2px;'>
         add_box
       </i>
@@ -55,7 +81,7 @@
     <div class='nav-wrapper'>
       <!-- Visulización de navegación en pantalla completa -->
       <a href='/' class='brand-logo'>
-        📒 ProjNotes
+        Biblioteca
       </a>
       <ul id='nav' class='right hide-on-med-and-down'>
         <li>
@@ -66,18 +92,12 @@
             Inicio
           </a>
         </li>
-        <li>
-          <a href='/about'>
-            <i class='material-icons right'>
-              business
-            </i>
-            Acerca De.
-          </a>
+        
         </li>
         <!-- Dropdown Trigger -->
         <li>
           <a class='dropdown-trigger' href='#!' data-target='dropdownMenu'>
-            Acciones
+            Libros
             <i class='material-icons right'>
               arrow_drop_down
             </i>
@@ -93,6 +113,15 @@
             Usuario
             <i class='material-icons right'>
               people
+            </i>
+          </a>
+        </li>
+        <!-- Dropdown Others -->
+        <li>
+          <a class='dropdown-trigger' href='#!' data-target='dropdownMenu-others'>
+            Acciones
+            <i class='material-icons right'>
+              arrow_drop_down
             </i>
           </a>
         </li>

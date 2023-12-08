@@ -1,42 +1,35 @@
-// Ayuda a manejar errores de http
+// Helps to handle http errors
 import createError from 'http-errors';
-// Importando liberia de express
+// Import the Express Library
 import express from 'express';
-// Es una biblioteca Core-Node para gestionar rutas del sistema
+// Is a Core-Node library to manage system paths
 import path from 'path';
-// Ayuda a analizar las cookies del cliente
+// Helps to parse client cookies
 import cookieParser from 'cookie-parser';
-// Biblioteca para registrar la comunicación http
+// Library to log http communication
 import morgan from 'morgan';
-
-// Configuración de módulos de paquete web
+// Setting Webpack Modules
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
-
-// Importando motor de plantillas
+// Importing template-engine
 import configTemplateEngine from './config/templateEngine';
-// Importando subrutas
+// Importing subroutes
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
-// Importando la configuración del paquete web
+// Importing webpack configuration
 import webpackConfig from '../webpack.dev.config';
-
-// Impportando winston logger
+// Impornting winston logger
 import log from './config/winston';
-
 // Importando enrutador
 import router from './routes/router';
-
+// Creando variable del directorio raiz
+// eslint-disable-next-line
 global['__rootdir'] = path.resolve(process.cwd());
-
-//  Creando la instancia de express
-// Estamos creando la instancia express.
+// We are creating the express instance
 const app = express();
-
-// Get el modo de ejecución
+// Get the execution mode
 const nodeEnviroment = process.env.NODE_ENV || 'production';
-
 // Deciding if we add webpack middleware or not
 if (nodeEnviroment === 'development') {
   // Start Webpack dev server
@@ -50,7 +43,6 @@ if (nodeEnviroment === 'development') {
     'webpack-hot-middleware/client?reload=true&timeout=1000',
     webpackConfig.entry,
   ];
-
   // Creating the bundler
   const bundle = webpack(webpackConfig);
   // Enabling the webpack middleware
@@ -64,11 +56,9 @@ if (nodeEnviroment === 'development') {
 } else {
   console.log('🏭 Ejecutando en modo producción 🏭');
 }
-
 // Configuring the template engine
 configTemplateEngine(app);
-
-// Rgistrando middlewares
+// Registering middlewares
 // Log all received requests
 app.use(morgan('dev', { stream: log.stream }));
 // Parse request data into json
@@ -80,6 +70,7 @@ app.use(cookieParser());
 // Set up the static file server
 app.use(express.static(path.join(__dirname, '../public')));
 
+// Registering routes
 // app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 router.addRoutes(app);
