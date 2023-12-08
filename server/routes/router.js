@@ -9,7 +9,6 @@ import loansRouter from '../domains/loans/loans.router';
 // Importando el factory de autorizacion
 import AuthFactory from './services/authorizationFactory';
 
-
 // Función que agrega rutas
 const addRoutes = (app) => {
   // Agregando enrutado de Home
