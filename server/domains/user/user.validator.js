@@ -1,4 +1,5 @@
 import * as Yup from 'yup';
+
 // Crear un esquema de validación
 // Creando el esquema de validación
 const signUpSchema = Yup.object().shape({
@@ -7,6 +8,7 @@ const signUpSchema = Yup.object().shape({
   grade: Yup.string().required('Se requiere ingresar un grado valido'),
   section: Yup.string().required('Se requiere ingresar una sección valida'),
 });
+
 const signUpGetter = (req) => {
   // Desestructuramos la informacion
   // Se regresa el objeto signup
@@ -19,8 +21,10 @@ const signUpGetter = (req) => {
     section,
   };
 };
+
 const signUp = {
   schema: signUpSchema,
   getObject: signUpGetter,
 };
+
 export default { signUp };

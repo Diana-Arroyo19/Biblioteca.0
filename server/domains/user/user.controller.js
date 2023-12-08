@@ -52,6 +52,7 @@ const editPut = async (req, res) => {
 const register = (req, res) => {
   res.render('user/register');
 };
+
 // POST '/user/register'
 const registerPost = async (req, res) => {
   const { validData: userFormData, errorData } = req;
