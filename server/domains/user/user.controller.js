@@ -27,7 +27,7 @@ const registerPost = async (req, res) => {
   // En caso de no haber errores, se crea el usuario
   try {
     // 1. Se crea una instancia del modelo User
-    // mendiante la funcion create del modelo
+    // mediante la función create del modelo
     const user = await User.create(userFormData);
     log.info(`Usuario creado: ${JSON.stringify(user)}`);
     // 3. Se contesta al cliente con el usuario creado

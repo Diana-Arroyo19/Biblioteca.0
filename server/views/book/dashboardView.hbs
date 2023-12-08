@@ -1,7 +1,26 @@
-<h1>Listado de Proyectos</h1>
+<h1>Listado de Librosl</h1>
 <div class='row'>
   <center>
-    {{#each projects}}
+    <div class='row'>
+<form action='/book/searchBooks' method='post' class='col s12 z-depth-3'>
+    <div class='row'>
+      <div class='input-field col s12 m6'>
+        <i class='material-icons prefix'>
+          query
+        </i>
+        <input name='query' id='query' type='text' class='validate' placeholder="Buscar"/>
+        <label for='query'>
+          Titulo, Categoría o Autor
+        </label>
+      </div>
+    <div class='row center-align'>
+      <button type='submit' class='waves-effect waves-light btn'>
+        <i class='material-icons left'>search</i>Buscar
+      </button>
+    </div>
+  </form>
+    </div>
+    {{#each books}}
       <div class='col s12 m6'>
         <div class='card'>
           <div class='card-image'>
