@@ -7,7 +7,7 @@ import reportRouter from '../domains/reports/report.router';
 import finesRouter from '../domains/fines/fines.router';
 import loansRouter from '../domains/loans/loans.router';
 // Importando el factory de autorizacion
-import AuthFactory from './services/authorizationFactory';
+import AuthFactory from '../services/authorizationFactory';
 
 // Función que agrega rutas
 const addRoutes = (app) => {
