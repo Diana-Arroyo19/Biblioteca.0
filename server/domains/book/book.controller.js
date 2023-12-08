@@ -2,19 +2,6 @@ import log from '../../config/winston';
 // Importando el modelo
 import BookModel from './book.model';
 
-// GET '/project/showDashboard'
-const showDashboard = async (req, res) => {
-  // Consultado todos los proyectos
-  const projects = await BookModel.find({}).lean().exec();
-  // Enviando los proyectos al cliente en JSON
-  res.render('book/dashboardView', { projects });
-};
-// GET '/project/addForm'
-const addForm = (req, res) => {
-  res.render('book/addView');
-};
-
-// POST "/project/add"
 const addBook = async (req, res) => {
   // Rescatando la info del formulario
   // Rescatando la info del formulario
@@ -61,6 +48,10 @@ const addBook = async (req, res) => {
 };
 
 // DELETE "/project/:id"
+const addForm = (req, res) => {
+  res.render('book/addView');
+};
+
 const deleteBook = async (req, res) => {
   // Extrayendo el id de los parametros
   const { id } = req.params;
@@ -74,10 +65,47 @@ const deleteBook = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+const filterBooks = (books, query, filterKey) =>
+  // eslint-disable-next-line implicit-arrow-linebreak
+  books.filter((book) => book[filterKey].includes(query));
+
+const searchBooks = async (req, res) => {
+  try {
+    // Acceder al valor de 'Android' en req.body.query y almacenarlo en una variable
+    const valorQuery = req.body.query;
+    // Consultado todos los libros
+    const allBooks = await BookModel.find({}).lean().exec();
+    // Definir las claves de filtrado
+    const filterKeys = ['title', 'author', 'category'];
+    // Filtrar por título, autor y categoría usando la función filterBooks
+    const filteredBooks = filterKeys.reduce(
+      (filtered, key) => [
+        ...filtered,
+        ...filterBooks(allBooks, valorQuery, key),
+      ],
+      [],
+    );
+    // Enviando los proyectos al cliente en JSON
+    res.render('book/dashboardView', { books: filteredBooks });
+  } catch (error) {
+    // Manejar errores de manera adecuada
+    console.error(error);
+    res.status(500).send('Error en la búsqueda de libros');
+  }
+};
+
+const showDashboard = async (req, res) => {
+  // Consultado todos los proyectos
+  const books = await BookModel.find({}).lean().exec();
+  // Enviando los proyectos al cliente en JSON
+  res.render('book/dashboardView', { books });
+};
+
 // Controlador Home
 export default {
-  showDashboard,
-  addForm,
   addBook,
+  addForm,
   deleteBook,
+  searchBooks,
+  showDashboard,
 };
