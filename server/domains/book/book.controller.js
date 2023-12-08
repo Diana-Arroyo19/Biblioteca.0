@@ -164,10 +164,10 @@ const searchBooks = async (req, res) => {
 };
 
 const showDashboard = async (req, res) => {
-  // Consultado todos los proyectos
-  const books = await BookModel.find({}).lean().exec();
-  // Enviando los proyectos al cliente en JSON
-  res.render('book/dashboardView', { books });
+  // Log de los query params
+  if (req.query.message) {
+    res.locals.successMessage = `Bienvenido a Projnotes ${req.user.firstName}`;
+  }
 };
 
 // Controlador Home

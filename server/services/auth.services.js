@@ -6,6 +6,10 @@ import LocalStrategy from 'passport-local';
 
 // Importando el modelo de usuarios
 import User from '../models/User';
+import User from '../domains/user/user.model';
+
+// Logger
+import log from '../config/winston';
 
 // Creando objeto de configuraciones
 const localOptions = {
@@ -20,11 +24,14 @@ const localStrategy = new LocalStrategy(
       const user = await User.findOne({ mail });
       // En caso de no encontrar al usuario se regresa falso
       if (!user) {
+         log.info('Usuario no registrado');
         return done(null, false, { message: 'Usuario no registrado' });
       }
       // En caso de que no este confirmado el usuario
-      // falla la autenticación
-      if (!user.emailConfirmedAt) {
+      // falla la  // falla la autenticación, un usuario no confirmado
+      // es aquel cuya propiedad emailConfirmationAt es nula
+      if (!user.emailConfirmationAt) {
+        log.info('Usuario no confirmado');
         return done(
           null, // error
           false, // user
@@ -37,6 +44,7 @@ const localStrategy = new LocalStrategy(
       // En caso de no proveer el password correcto se regresa falso
       // Para ello se usa un método
       if (!user.authenticateUser(password)) {
+        log.info('Password incorrecto');  
         return done(null, false, { message: 'Password o usuario incorrecto' });
       }
       // En caso de pasar las anteriores pruebas
@@ -44,6 +52,7 @@ const localStrategy = new LocalStrategy(
       // argumento el usuario
       return done(null, user);
     } catch (error) {
+      log.error(`🚨 ${error.message}`);
       return done(error, false);
     }
   },
@@ -51,14 +60,19 @@ const localStrategy = new LocalStrategy(
 
 // Esto genera y mantiene las cookies
 passport.serializeUser((user, done) => {
+  log.info('Serializando usuario');
   done(null, user.id);
 });
 
-passport.deserializeUser((id, done) => {
-  User.findById(id, (err, user) => {
-    done(err, user);
-  });
-});
+passport.deserializeUser(async (id, done) => {
+  try {
+    log.info('Deserializando usuario');
+    const user = await User.findById(id);
+    done(null, user);
+  } catch (error) {
+    log.error(`🚨 ${error.message}`);
+    done(error, null);
+  }
 
 // Se registra la estrategia
 passport.use(localStrategy);
@@ -68,7 +82,7 @@ passport.use(localStrategy);
 // el Segundo argumento son las opciones
 export const authLocal = passport.authenticate('local', {
   // Redireccionamiento en caso de fallo
-  successRedirect: '/projects',
+  successRedirect: '/project/showDashboard?message=loginSuccess',
   // Redireccionamiento en caso de exito
   failureRedirect: '/user/login',
   // Permite el uso de mensajes de flash

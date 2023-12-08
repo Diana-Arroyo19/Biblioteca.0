@@ -1,5 +1,6 @@
 <!-- Dropdow para menu "Libros" -->
 <ul id='dropdownMenu-others' class='dropdown-content'>
+
   <li>
     <a href='/about'>
       <i class='large material-icons' style='margin: 2px;'>
@@ -57,6 +58,7 @@
 </ul>
 <!-- Dropdow para menu "Usuarios" -->
 <ul id='user-dropdown-menu' class='dropdown-content'>
+  {{#unless user}}
   <li>
     <a href='/user/search'>
       <i class='large material-icons' style='margin: 2px;'>
@@ -74,6 +76,16 @@
       Registrar Usuario
     </a>
   </li>
+   {{else}}
+   <li>
+    <a href='/user/logout'>
+      <i class='large material-icons' style='margin: 2px;'>
+        logout
+      </i>
+      Cerrar sesion
+    </a>
+  </li>
+  {{/unless}}
 </ul>
 <!-- Inicia marcado de barra de navegación -->
 <nav class='teal accent-4'>
@@ -159,6 +171,7 @@
           </a>
         </li>
         <li class='divider'></li>
+          {{#unless user}}
         <li>
           <a href='/user/login'>
             <i class='material-icons left'>
@@ -175,6 +188,7 @@
             Registrarse
           </a>
         </li>
+         {{else}}
         <li>
           <a href='/user/logout'>
             <i class='material-icons left'>
@@ -183,6 +197,7 @@
             Cerrar Sesión
           </a>
         </li>
+        {{/unless}}
         <li class='divider'></li>
         <li>
           <a href='/about'>

@@ -21,7 +21,13 @@ router.put(
   ValidateFactory(userValidator.signUp),
   userController.editPut,
 );
-router.post('/registerPost', userController.searchUserPost);
+
+// POST '/user/register'
+router.post(
+  '/register',
+  ValidateFactory(userValidator.signUp),
+  userController.registerPost,
+);
 
 // POST user/login
 router.post('/login', authLocal);
