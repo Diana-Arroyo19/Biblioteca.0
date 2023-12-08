@@ -20,4 +20,11 @@ router.put(
 );
 router.post('/registerPost', userController.searchUserPost);
 
+// GET 'user/confirm/<token>'
+router.get(
+  '/confirm/:token',
+  ValidateFactory(userValidator.token),
+  userController.confirm,
+);
+
 export default router;
