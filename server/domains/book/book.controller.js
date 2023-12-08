@@ -20,6 +20,8 @@ const deleteBook = async (req, res) => {
   // Usando el modelo para borrar el proyecto
   try {
     const result = await BookModel.findByIdAndRemove(id);
+    // Agregando mensaje de flash
+    req.flash('successMessage', 'Proyecto borrado con exito');
     return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json(error);

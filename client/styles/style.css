@@ -23,4 +23,12 @@ text-align: center;
 margin-right: 10px; 
 }
 
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 70%;
+    left:40%;
+  }
+  
+
 /* #FF9F1C */
