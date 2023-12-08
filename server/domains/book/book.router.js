@@ -16,6 +16,8 @@ router.get(['/', '/dashboard'], bookController.showDashboard);
 router.get(['/add-form', '/add'], bookController.addForm);
 // DELETE "/book/:id"
 router.delete('/:id', bookController.deleteBook);
+// POST "/project/add"
+router.post('/add', bookController.addBook);
 
 // Exporto este tramo de ruta
 export default router;

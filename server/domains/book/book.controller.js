@@ -13,6 +13,11 @@ const addForm = (req, res) => {
   res.render('book/addView');
 };
 
+// POST "/project/add"
+const addBook = (req, res) => {
+  res.status(200).json(req.body);
+};
+
 // DELETE "/project/:id"
 const deleteBook = async (req, res) => {
   // Extrayendo el id de los parametros
@@ -33,4 +38,5 @@ export default {
   showDashboard,
   addForm,
   deleteBook,
+  addBook,
 };
