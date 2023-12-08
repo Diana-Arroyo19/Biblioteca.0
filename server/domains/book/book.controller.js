@@ -46,9 +46,12 @@ const addBook = async (req, res) => {
   try {
     // Se salva el documento en la colección correspondiente
     const savedBook = await bookDocument.save();
-    // Se contesta la información del proyecto al cliente
-    log.info('Se entrega al cliente información del proyecto cargado');
-    return res.status(200).json(savedBook);
+    // Se informa al cliente que se guardo el proyecto
+    log.info(`Se carga proyecto ${savedBook}`);
+    // Se registra en el log el redireccionamiento
+    log.info('Se redirecciona el sistema a /project');
+    // Se redirecciona el sistema a la ruta '/project'
+    return res.redirect('/book');
   } catch (error) {
     log.error(
       'ln 56 project.controller: Error al guardar proyecto en la base de datos',
