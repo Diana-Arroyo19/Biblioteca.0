@@ -56,3 +56,25 @@ const addBook = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
+// DELETE "/project/:id"
+const deleteBook = async (req, res) => {
+  // Extrayendo el id de los parametros
+  const { id } = req.params;
+  // Usando el modelo para borrar el proyecto
+  try {
+    const result = await BookModel.findByIdAndRemove(id);
+    // Agregando mensaje de flash
+    req.flash('successMessage', 'Proyecto borrado con exito');
+    return res.status(200).json(result);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+// Controlador Home
+export default {
+  showDashboard,
+  addForm,
+  addBook,
+  deleteBook,
+};
