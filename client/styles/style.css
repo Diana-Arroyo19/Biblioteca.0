@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font-size: 14px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #90dfa1;
+}
+
+h1 {
+  color: rgb(160, 235, 164);
+}
+
+#brand-logo-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#brand-logo-img img {
+  margin-right: 10px; /* Add some space between the image and text if desired */
+}
+
+#toast-container {
+  top: auto !important;
+  right: auto !important;
+  bottom: 70%;
+  left:40%;
+}
+
+.logo{
+  width: 130px;
+  margin: auto;
+}
+
+/* #FF9F1C */

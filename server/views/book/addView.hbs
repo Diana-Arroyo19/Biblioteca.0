@@ -1,0 +1,144 @@
+<div class='row'>
+  <div class='col s12 m10 offset-m1 18 offset-12'>
+    <div class='card'>
+      <div class='card-image'>
+        <img
+          src='/images/hayquepasar.png'
+          alt='Imagen de creación de proyecto'
+          width='450'
+          height='450'
+        />
+        <span class='card-title add-project' style='font-weight: bolder;'>Crear
+          Projecto</span>
+      </div>
+      <form autocomplete='off' action='/book/add' method='post'>
+        <div class='card-content card-action'>
+          <div class='input-field'>
+            <label for='book-image'>
+              Imagen del Libro
+            </label>
+            <input
+              id='book-image'
+              type='text'
+              required
+              name='image'
+              placeholder='Ingrese el link de la imagen del libro'
+              class='validate'
+              value='{{book.image}}'
+            />
+            {{#if errorModel.image}}
+              <span style='color: crimson;'>Error: {{errorModel.image}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-title'>
+              Nombre del Libro
+            </label>
+            <input
+              id='book-title'
+              type='text'
+              required
+              name='title'
+              placeholder='Ingrese el Nombre del Libro'
+              class='validate'
+              value='{{book.title}}'
+            />
+            {{#if errorModel.title}}
+              <span style='color: crimson;'>Error: {{errorModel.title}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-author'>
+              Nombre del Autor
+            </label>
+            <input
+              id='book-author'
+              type='text'
+              required
+              name='author'
+              placeholder='Ingrese el Nombre del Autor'
+              class='validate'
+              value='{{book.author}}'
+            />
+            {{#if errorModel.author}}
+              <span style='color: crimson;'>Error: {{errorModel.author}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-category'>
+              Categoria
+            </label>
+            <input
+              id='book-category'
+              type='text'
+              required
+              name='category'
+              placeholder='Ingrese la Categoria'
+              class='validate'
+              {{book.category}}
+            />
+            {{#if errorModel.category}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.category}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-isbn'>
+              ISBN
+            </label>
+            <input
+              id='book-isbn'
+              type='text'
+              required
+              name='isbn'
+              placeholder='Ingrese el ISBN'
+              class='validate'
+              value='{{book.isbn}}'
+            />
+            {{#if errorModel.isbn}}
+              <span style='color: crimson;'>Error: {{errorModel.isbn}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-copiesAvailable'>
+              Copias disponibles
+            </label>
+            <input
+              id='book-copiesAvailable'
+              type='text'
+              required
+              name='copiesAvailable'
+              placeholder='Ingrese las Copias disponibles'
+              class='validate'
+              value='{{book.copiesAvailable}}'
+            />
+            {{#if errorModel.copiesAvailable}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.copiesAvailable}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-description'>
+              Descripción del libro
+            </label>
+            <textarea
+              name='description'
+              id='book-description'
+              required
+              cols='30'
+              rows='10'
+              class='materialize-textarea'
+            >{{book.description}}</textarea>
+            {{#if errorModel.description}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.description}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <div class='card-action'><button
+            class='teal darken-3waves-effect waves-light btn'
+          ><i class='material-icons left'>note_add</i> Agregar</button></div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<h1>Listado de Reservas</h1>
+<div class='row'>
+  <center>
+    {{#each loans}}
+      <div class='col s12'>
+        <div class='card amber darken-4'>
+          <div class='card-content amber-text text-lighten-5'>
+            <span class='card-title'>{{_id}}</span>
+            <p>{{title}}</p>
+          </div>
+          <div class='card-content amber-text text-lighten-5'>
+            <h4>Día de reserva: {{reservationDay}}</h4>
+            <h4>Día de Entrega: {{deliveryDay}}</h4>
+          </div>
+          <div class='card-action'>
+            <a
+              href="javascript: deleteLoan('{{_id}}')"
+              class='inline red darken-2'
+            >
+              <i
+                class='material-icons'
+                style='display: inline-flex; vertical-align: sub;'
+              >delete</i>
+              Reserva Entregada
+            </a>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <p>No hay reservas que listar.</p>
+    {{/each}}
+  </center>
+</div>

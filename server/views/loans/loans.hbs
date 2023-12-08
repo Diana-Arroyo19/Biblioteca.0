@@ -1,0 +1,126 @@
+<div class='col'>
+  <h1>Reservar libro</h1>
+  <form
+    autocomplete='off'
+    action='/loans/loansAction/{{book._id}}?_method=put'
+    method='post'
+    class='col s12 card z-depth-3'
+  >
+    <section class='card-content'>
+      <!-- Código de estudiante -->
+      <div class='row'>
+        <div class='input-field col s12 m6'>
+          <i class='material-icons prefix'>code</i>
+          <input
+            name='studentCode'
+            id='studentCode'
+            type='number'
+            class='validate'
+          />
+          <label for='studentCode'>Codigo de Estudiante</label>
+        </div>
+      </div>
+
+      <!-- Título del libro -->
+      <div class='row'>
+        <div class='input-field col s12'>
+          <i class='material-icons prefix'>book</i>
+          <input
+            disabled
+            type='text'
+            id='book-title'
+            name='title'
+            class='validate'
+            value='{{book.title}}'
+            required
+          />
+          <label for='book-title'>Título del Libro</label>
+          <span
+            class='helper-text'
+            data-error='Es necesario ingresar el título del libro'
+            data-success='✅ Correcto'
+          ></span>
+        </div>
+      </div>
+
+      <!-- Nombre del autor -->
+      <div class='row'>
+        <div class='input-field col s12'>
+          <i class='material-icons prefix'>person</i>
+          <input
+            disabled
+            type='text'
+            id='book-author'
+            name='author'
+            class='validate'
+            value='{{book.author}}'
+            required
+          />
+          <label for='book-author'>Nombre del Autor</label>
+          <span
+            class='helper-text'
+            data-error='Es necesario ingresar el nombre del autor'
+            data-success='✅ Correcto'
+          ></span>
+        </div>
+      </div>
+
+      <!-- ISBN -->
+      <div class='row'>
+        <div class='input-field col s12'>
+          <i class='material-icons prefix'>confirmation_number</i>
+          <input
+            disabled
+            type='text'
+            id='book-isbn'
+            name='isbn'
+            class='validate'
+            value='{{book.isbn}}'
+            required
+          />
+          <label for='book-isbn'>ISBN</label>
+          <span
+            class='helper-text'
+            data-error='Es necesario ingresar el ISBN'
+            data-success='✅ Correcto'
+          ></span>
+        </div>
+      </div>
+
+      <!-- Copias disponibles -->
+      <div class='row'>
+        <div class='input-field col s12'>
+          <i class='material-icons prefix'>library_books</i>
+          <input
+            disabled
+            type='text'
+            id='book-copiesAvailable'
+            name='copiesAvailable'
+            class='validate'
+            value='{{book.copiesAvailable}}'
+            required
+          />
+          <label for='book-copiesAvailable'>Copias Disponibles</label>
+          <span
+            class='helper-text'
+            data-error='Es necesario ingresar el número de copias hábiles'
+            data-success='✅ Correcto'
+          ></span>
+        </div>
+      </div>
+
+      <!-- Otros campos del libro -->
+      <!-- ... -->
+
+    </section>
+
+    <!-- Acción del formulario -->
+    <div class='card-action'>
+      <button class='teal darken-3  waves-effect waves-light btn'>
+        <i class='material-icons left'>keyboard_arrow_right
+        </i>
+        Reservar
+      </button>
+    </div>
+  </form>
+</div>
