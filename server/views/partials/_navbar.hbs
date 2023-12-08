@@ -5,7 +5,7 @@
       <i class='large material-icons' style='margin: 2px;'>
         business
       </i>
-      Acerda de
+      Acerca de
     </a>
   </li>
   <li class='divider'></li>
@@ -114,6 +114,7 @@
             </i>
           </a>
         </li>
+           {{/if}}
         <!-- User Dropdown -->
         <li>
           <a
@@ -152,6 +153,7 @@
             Inicio
           </a>
         </li>
+           {{#if user}}
         <li class='divider'></li>
         <li>
           <a href='/projects'>
@@ -169,7 +171,7 @@
             Crear Proyecto
           </a>
         </li>
-        <li class='divider'></li>
+         {{/if}}
           {{#unless user}}
         <li>
           <a href='/user/login'>
