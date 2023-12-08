@@ -12,6 +12,7 @@ import deleteLoan from './domains/loans.dashboard';
 
 // Inicializando Scripts de Materialize para interactividad
 M.AutoInit();
+
 // Cargando script en caso de que la URL sea '/book'
 if (window.location.pathname === '/book') {
   console.log('Script cargado correctamente');

@@ -1,38 +1,38 @@
 body {
-padding: 50px;
-font-size: 14px;
-font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 50px;
+  font-size: 14px;
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
-color: #00b7ff;
+  color: #6ecc9d;
 }
 
 h1 {
-color: teal;
+  color: rgb(98, 173, 89);
 }
 
 #brand-logo-img {
-display: flex;
-align-items: center;
-justify-content: center;
-text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 #brand-logo-img img {
-margin-right: 10px; 
+  margin-right: 10px; /* Add some space between the image and text if desired */
 }
 
 #toast-container {
-    top: auto !important;
-    right: auto !important;
-    bottom: 70%;
-    left:40%;
-  }
+  top: auto !important;
+  right: auto !important;
+  bottom: 70%;
+  left:40%;
+}
 
-  .logo{
-    width: 130px;
-    margin: auto;
-  }
-  
+.logo{
+  width: 130px;
+  margin: auto;
+}
+
 /* #FF9F1C */
