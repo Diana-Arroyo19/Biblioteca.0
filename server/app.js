@@ -25,6 +25,9 @@ import webpackConfig from '../webpack.dev.config';
 // Impportando winston logger
 import log from './config/winston';
 
+// Importando enrutador
+import router from './routes/router';
+
 global['__rootdir'] = path.resolve(process.cwd());
 
 //  Creando la instancia de express
@@ -77,9 +80,9 @@ app.use(cookieParser());
 // Set up the static file server
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Registering routes
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+router.addRoutes(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
