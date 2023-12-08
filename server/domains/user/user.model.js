@@ -1,11 +1,8 @@
 import mongoose from 'mongoose';
-
 const { Schema } = mongoose;
-
 const UserSchema = new Schema(
   {
-    firstName: { type: String, required: true },
-    lastname: { type: String, required: true },
+    fullname: { type: String, required: true },
     studentCode: {
       type: Number,
       required: true,
@@ -27,8 +24,7 @@ UserSchema.methods = {
   toJSON() {
     return {
       id: this._id,
-      firstName: this.firstName,
-      lastname: this.lastname,
+      fullname: this.fullname,
       studentCode: this.studentCode,
       grade: this.grade,
       section: this.section,
@@ -37,4 +33,4 @@ UserSchema.methods = {
     };
   },
 };
-export default mongoose.model('user', UserSchema);
+export default mongoose.model('users', UserSchema);

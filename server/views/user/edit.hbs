@@ -1,0 +1,110 @@
+<div class='container'>
+  <center>
+    <h1>Editar Alumno Encontrado</h1>
+  </center>
+
+  <form
+    autocomplete='off'
+    action='/user/edit/{{user._id}}?_method=put'
+    method='post'
+    class='col s12 card z-depth-3'
+  >
+    <div class='card-content'>
+      <div class='input-field'>
+        <label for='user-fullname'>
+          Nombre de estudiante
+        </label>
+        <input
+          type='text'
+          id='user-fullname'
+          name='fullname'
+          placeholder='Ingrese nombre completo del alumno'
+          class='validate'
+          value='{{user.fullname}}'
+          required
+        />
+        <span
+          class='helper-text'
+          data-error='Es necesario ingresar el nombre de estudiante'
+          data-success='✅ Correcto'
+        ></span>
+        {{#if errorModel.fullname}}
+          <span style='color: crimson;'>Error: {{errorModel.fullname}}</span>
+        {{/if}}
+      </div>
+      <div class='input-field'>
+        <label for='user-studentCode'>
+          Codigo de estudiante
+        </label>
+        <input
+          type='text'
+          id='user-studentCode'
+          name='studentCode'
+          placeholder='Ingrese nombre del proyecto'
+          class='validate'
+          value='{{user.studentCode}}'
+          required
+        />
+        <span
+          class='helper-text'
+          data-error='Es necesario ingresar el codigo de estudiante'
+          data-success='✅ Correcto'
+        ></span>
+        {{#if errorModel.studentCode}}
+          <span style='color: crimson;'>Error: {{errorModel.studentCode}}</span>
+        {{/if}}
+      </div>
+      <div class='input-field'>
+        <label for='user-grade'>
+          Grado
+        </label>
+        <input
+          type='text'
+          id='user-grade'
+          name='grade'
+          placeholder='Ingrese el grado del alumno'
+          class='validate'
+          value='{{user.grade}}'
+          required
+        />
+        <span
+          class='helper-text'
+          data-error='Es necesario ingresar el grado del alumno'
+          data-success='✅ Correcto'
+        ></span>
+        {{#if errorModel.grade}}
+          <span style='color: crimson;'>Error:
+            {{errorModel.grade}}</span>
+        {{/if}}
+      </div>
+      <div class='input-field'>
+        <label for='user-section'>
+          Sección
+        </label>
+        <input
+          type='text'
+          id='user-section'
+          name='section'
+          placeholder='Ingrese nombre del proyecto'
+          class='validate'
+          value='{{user.section}}'
+          required
+        />
+        <span
+          class='helper-text'
+          data-error='Es necesario ingresar la sección'
+          data-success='✅ Correcto'
+        ></span>
+        {{#if errorModel.section}}
+          <span style='color: crimson;'>Error: {{errorModel.section}}</span>
+        {{/if}}
+      </div>
+    <div class='card-action'>
+      <button type='submit' class='amber darken-4 waves-effect waves-light btn'>
+        <i class='material-icons left'>edit</i>
+        Editar
+      </button>
+    </div>
+  </form>
+
+</div>

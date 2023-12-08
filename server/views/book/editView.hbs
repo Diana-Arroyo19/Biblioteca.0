@@ -1,0 +1,185 @@
+<div class='row'>
+  <div class='col s12 m10 offset-m1 18 offset-12'>
+    <div class='card'>
+      <div class='card-image'>
+        <img
+          src='/images/editbook.png
+          alt='Imagen creacion de proyecto'
+          width='400'
+          height='400'
+        />
+        <span class='card-title add-project' style='font-weight: bolder;'>
+          Editar Libro
+        </span>
+      </div>
+      <form
+        autocomplete='off'
+        action='/book/edit/{{book._id}}?_method=put'
+        method='post'
+      >
+        <div class='card-content'>
+          <div class='input-field'>
+            <label for='book-image'>
+              Imagen del Libro
+            </label>
+            <input
+              type='text'
+              id='book-image'
+              name='image'
+              placeholder='Ingrese el enlace a una imagen'
+              class='validate'
+              value='{{book.image}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar el enlace a una imagen'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.image}}
+              <span style='color: crimson;'>Error: {{errorModel.image}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-title'>
+              Titulo del Libro
+            </label>
+            <input
+              type='title'
+              id='book-title'
+              name='title'
+              placeholder='Ingrese nombre del proyecto'
+              class='validate'
+              value='{{book.title}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar el titulo del libro'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.title}}
+              <span style='color: crimson;'>Error: {{errorModel.title}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-author'>
+              Nombre del Autor
+            </label>
+            <input
+              type='text'
+              id='book-author'
+              name='author'
+              placeholder='Ingrese nombre del proyecto'
+              class='validate'
+              value='{{book.author}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar el nombre del autor'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.author}}
+              <span style='color: crimson;'>Error: {{errorModel.author}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-category'>
+              Categoria
+            </label>
+            <input
+              type='text'
+              id='book-category'
+              name='category'
+              placeholder='Ingrese nombre del proyecto'
+              class='validate'
+              value='{{book.category}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar la categoría'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.category}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.category}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='project-name'>
+              ISBN
+            </label>
+            <input
+              type='text'
+              id='book-isbn'
+              name='isbn'
+              placeholder='Ingrese nombre del proyecto'
+              class='validate'
+              value='{{book.isbn}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar el ISBN'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.isbn}}
+              <span style='color: crimson;'>Error: {{errorModel.isbn}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-copiesAvailable'>
+              Copias Disponibles
+            </label>
+            <input
+              type='text'
+              id='book-copiesAvailable'
+              name='copiesAvailable'
+              placeholder='Ingrese nombre del proyecto'
+              class='validate'
+              value='{{book.copiesAvailable}}'
+              required
+            />
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar el numero de copias habiles'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.copiesAvailable}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.copiesAvailable}}</span>
+            {{/if}}
+          </div>
+          <div class='input-field'>
+            <label for='book-description'>
+              Descripción del libro
+            </label>
+            <textarea
+              name='description'
+              id='book-description'
+              class='materialize-textarea validate'
+              required
+            >{{book.description}}</textarea>
+            <span
+              class='helper-text'
+              data-error='Es necesario ingresar una descripción'
+              data-success='✅ Correcto'
+            ></span>
+            {{#if errorModel.description}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.description}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <div class='card-action'>
+          <button class='amber darken-4 waves-effect waves-light btn'>
+            <i class='material-icons left'>edit</i>
+            Editar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
