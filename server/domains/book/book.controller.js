@@ -15,7 +15,7 @@ const addForm = (req, res) => {
 };
 
 // POST "/project/add"
-const addBook = (req, res) => {
+const addBook = async (req, res) => {
   // Rescatando la info del formulario
   // Rescatando la info del formulario
   const { errorData: validationError } = req;
@@ -23,36 +23,36 @@ const addBook = (req, res) => {
   // se le informa al cliente
   if (validationError) {
     log.info('Se entrega al cliente error de validación de add Project');
-    res.status(422).json(validationError);
-  } else {
-    // En caso de que pase la validación
-    // Se desestructura la información
-    // de la peticion
-    const { validData: project } = req;
-    // Se contesta la información
-    // del proyecto al cliente
-    res.status(200).json(project);
+    // Se desestructuran los datos de validación
+    // y se renombran de  "value" a "project"
+    const { value: book } = validationError;
+    // Se extraen los campos que fallaron en la validación
+    const errorModel = validationError.inner.reduce((prev, curr) => {
+      // Creando una variable temporal para
+      // evitar el error "no-param-reassing"
+      const workingPrev = prev;
+      workingPrev[`${curr.path}`] = curr.message;
+      return workingPrev;
+    }, {});
+    return res.status(422).render('book/addView', { book, errorModel });
   }
-};
-
-// DELETE "/project/:id"
-const deleteBook = async (req, res) => {
-  // Extrayendo el id de los parametros
-  const { id } = req.params;
-  // Usando el modelo para borrar el proyecto
+  // En caso de que pase la validación
+  // Se desestructura la información
+  // de la peticion
+  const { validData: book } = req;
+  // Creando la instancia de un documento
+  // con los valores de 'project'
+  const bookDocument = new BookModel(book);
   try {
-    const result = await BookModel.findByIdAndRemove(id);
-    // Agregando mensaje de flash
-    req.flash('successMessage', 'Proyecto borrado con exito');
-    return res.status(200).json(result);
+    // Se salva el documento en la colección correspondiente
+    const savedBook = await bookDocument.save();
+    // Se contesta la información del proyecto al cliente
+    log.info('Se entrega al cliente información del proyecto cargado');
+    return res.status(200).json(savedBook);
   } catch (error) {
+    log.error(
+      'ln 56 project.controller: Error al guardar proyecto en la base de datos',
+    );
     return res.status(500).json(error);
   }
-};
-// Controlador Home
-export default {
-  showDashboard,
-  addForm,
-  addBook,
-  deleteBook,
 };

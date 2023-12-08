@@ -24,7 +24,11 @@
               name='image'
               placeholder='Ingrese el link de la imagen del libro'
               class='validate'
+              value='{{book.image}}'
             />
+            {{#if errorModel.image}}
+              <span style='color: crimson;'>Error: {{errorModel.image}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-title'>
@@ -37,7 +41,11 @@
               name='title'
               placeholder='Ingrese el Nombre del Libro'
               class='validate'
+              value='{{book.title}}'
             />
+            {{#if errorModel.title}}
+              <span style='color: crimson;'>Error: {{errorModel.title}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-author'>
@@ -50,7 +58,11 @@
               name='author'
               placeholder='Ingrese el Nombre del Autor'
               class='validate'
+              value='{{book.author}}'
             />
+            {{#if errorModel.author}}
+              <span style='color: crimson;'>Error: {{errorModel.author}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-category'>
@@ -63,7 +75,12 @@
               name='category'
               placeholder='Ingrese la Categoria'
               class='validate'
+              {{book.category}}
             />
+            {{#if errorModel.category}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.category}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-isbn'>
@@ -76,7 +93,11 @@
               name='isbn'
               placeholder='Ingrese el ISBN'
               class='validate'
+              value='{{book.isbn}}'
             />
+            {{#if errorModel.isbn}}
+              <span style='color: crimson;'>Error: {{errorModel.isbn}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-copiesAvailable'>
@@ -89,7 +110,12 @@
               name='copiesAvailable'
               placeholder='Ingrese las Copias disponibles'
               class='validate'
+              value='{{book.copiesAvailable}}'
             />
+            {{#if errorModel.copiesAvailable}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.copiesAvailable}}</span>
+            {{/if}}
           </div>
           <div class='input-field'>
             <label for='book-description'>
@@ -102,7 +128,11 @@
               cols='30'
               rows='10'
               class='materialize-textarea'
-            ></textarea>
+            >{{book.description}}</textarea>
+            {{#if errorModel.description}}
+              <span style='color: crimson;'>Error:
+                {{errorModel.description}}</span>
+            {{/if}}
           </div>
         </div>
         <div class='card-action'><button
