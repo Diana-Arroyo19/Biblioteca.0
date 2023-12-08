@@ -1,6 +1,3 @@
-// Actions methods
-// GET "/"
-// GET "/index"
 const about = (req, res) => {
   res.render('about');
 };

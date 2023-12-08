@@ -20,17 +20,21 @@ const loans = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
 const loansAction = async (req, res) => {
   try {
     const { id } = req.params;
     const { studentCode } = req.body;
+
     // Buscar usuario y libro
     const user = await UserModel.findOne({ studentCode }).lean().exec();
     const book = await BookModel.findOne({ _id: id });
+
     if (!user) {
       console.log('No se encontró el estudiante');
       return res.render('loans/loans');
     }
+
     if (book && book.copiesAvailable > 0) {
       // Generar reserva del libro
       // eslint-disable-next-line object-curly-newline
@@ -49,9 +53,11 @@ const loansAction = async (req, res) => {
         // Guardar la reserva
         const savedLoans = await loansDocument.save();
         log.info(`Se carga la reserva ${savedLoans}`);
+
         // Actualizar registro de libro
         book.copiesAvailable -= 1;
         await book.save();
+
         // Redireccionar a la ruta '/book'
         log.info('Se redirecciona el sistema a /book');
         return res.redirect('/book');
