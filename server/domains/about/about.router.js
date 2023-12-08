@@ -7,10 +7,6 @@ import aboutController from './about.controller';
 // Creando una isntancia del enrutador
 const router = new Router();
 
-// Enrutamos
-// GET '/'
-// GET '/home'
-// GET '/index
 router.get('/', aboutController.about);
 
 // Exporto este tramo de ruta

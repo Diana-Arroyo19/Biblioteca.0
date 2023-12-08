@@ -1,5 +1,6 @@
 import log from '../../config/winston';
 import BookModel from './book.model';
+
 const addBook = async (req, res) => {
   // Rescatando la info del formulario
   const { errorData: validationError } = req;
@@ -43,9 +44,11 @@ const addBook = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
 const addForm = (req, res) => {
   res.render('book/addView');
 };
+
 const edit = async (req, res) => {
   // Extrayendo el id por medio de los parametros de url
   const { id } = req.params;
@@ -67,6 +70,7 @@ const edit = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
 const editPut = async (req, res) => {
   const { id } = req.params;
   // Rescatando la info del formulario
@@ -129,9 +133,11 @@ const deleteBook = async (req, res) => {
     return res.status(500).json(error);
   }
 };
+
 const filterBooks = (books, query, filterKey) =>
   // eslint-disable-next-line implicit-arrow-linebreak
   books.filter((book) => book[filterKey].includes(query));
+
 const searchBooks = async (req, res) => {
   try {
     // Acceder al valor de 'Android' en req.body.query y almacenarlo en una variable
@@ -156,12 +162,14 @@ const searchBooks = async (req, res) => {
     res.status(500).send('Error en la búsqueda de libros');
   }
 };
+
 const showDashboard = async (req, res) => {
   // Consultado todos los proyectos
   const books = await BookModel.find({}).lean().exec();
   // Enviando los proyectos al cliente en JSON
   res.render('book/dashboardView', { books });
 };
+
 // Controlador Home
 export default {
   addBook,
