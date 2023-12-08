@@ -132,3 +132,4 @@ dist
 # Ignoring client files
 /public/styles/app.css
 /public/bundle.js
+node_modules
