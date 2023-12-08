@@ -1,0 +1,31 @@
+<h1>Listado de Proyectos</h1>
+<div class='row'>
+  <center>
+    {{#each projects}}
+      <div class='col s12 m6'>
+        <div class='card'>
+          <div class='card-image'>
+            <img src='{{image}}' height='250' />
+            <span class='card-title'>{{title}}</span>
+            <a
+              href="javascript: deleteBook('{{_id}}')"
+              class='btn-floating halfway-fab waves-effect waves-light red'
+            ><i class='material-icons'>delete</i></a>
+          </div>
+          <div class='card-content'>
+            <p
+              style='max-height: 3em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;'
+            >{{description}}</p>
+          </div>
+          <div class='card-action'>
+            <a href='/book/edit/{{_id}}'><i
+                class='material-icons right'
+              >edit</i>Editar Libro</a>
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <p>No hay proyectos que listar.</p>
+    {{/each}}
+  </center>
+</div>

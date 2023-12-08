@@ -1,0 +1,101 @@
+<div class='row'>
+  <div class='col s12 m10 offset-m1 18 offset-12'>
+    <div class='card'>
+      <div class='card-image'>
+        <img
+          src='/images/hayquepasar.png'
+          alt='Imagen de creación de proyecto'
+          width='450'
+          height='450'
+        />
+        <span class='card-title add-project' style='font-weight: bolder;'>Crear
+          Projecto</span>
+      </div>
+      <form autocomplete='off' action='/book/add' method='post'>
+        <div class='card-content card-action'>
+          <div class='input-field'>
+            <label for='book-title'>
+              Nombre del Libro
+            </label>
+            <input
+              id='book-title'
+              type='text'
+              required
+              name='tile'
+              placeholder='Ingrese el Nombre del Libro'
+              class='validate'
+            />
+          </div>
+          <div class='input-field'>
+            <label for='book-author'>
+              Nombre del Autor
+            </label>
+            <input
+              id='book-author'
+              type='text'
+              required
+              name='author'
+              placeholder='Ingrese el Nombre del Autor'
+              class='validate'
+            />
+          </div>
+          <div class='input-field'>
+            <label for='book-category'>
+              Categoria
+            </label>
+            <input
+              id='book-category'
+              type='text'
+              required
+              name='category'
+              placeholder='Ingrese la Categoria'
+              class='validate'
+            />
+          </div>
+          <div class='input-field'>
+            <label for='book-isbn'>
+              ISBN
+            </label>
+            <input
+              id='book-isbn'
+              type='text'
+              required
+              name='isbn'
+              placeholder='Ingrese el ISBN'
+              class='validate'
+            />
+          </div>
+          <div class='input-field'>
+            <label for='book-copiesAvailable'>
+              Copias disponibles
+            </label>
+            <input
+              id='book-copiesAvailable'
+              type='text'
+              required
+              name='copiesAvailable'
+              placeholder='Ingrese las Copias disponibles'
+              class='validate'
+            />
+          </div>
+          <div class='input-field'>
+            <label for='book-description'>
+              Descripción del Projecto
+            </label>
+            <textarea
+              name='description'
+              id='book-description'
+              required
+              cols='30'
+              rows='10'
+              class='materialize-textarea'
+            ></textarea>
+          </div>
+        </div>
+        <div class='card-action'><button
+            class='blue darken-3 waves-effect waves-light btn'
+          ><i class='material-icons left'>note_add</i> Agregar</button></div>
+      </form>
+    </div>
+  </div>
+</div>

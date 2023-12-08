@@ -2,6 +2,10 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 const BookSchema = new Schema({
+  image: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -20,6 +24,10 @@ const BookSchema = new Schema({
   },
   copiesAvailable: {
     type: Number,
+    required: true,
+  },
+  description: {
+    type: String,
     required: true,
   },
 });

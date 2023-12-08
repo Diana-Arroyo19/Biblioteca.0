@@ -14,6 +14,8 @@ router.get(['/', '/dashboard'], bookController.showDashboard);
 // GET '/book/add-form'
 // GET '/book/add'
 router.get(['/add-form', '/add'], bookController.addForm);
+// DELETE "/book/:id"
+router.delete('/:id', bookController.deleteBook);
 
 // Exporto este tramo de ruta
 export default router;
