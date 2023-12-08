@@ -1,4 +1,5 @@
-import express from 'express';
+const express = require('express');
+
 const router = express.Router();
 
 // GET /users
@@ -8,7 +9,7 @@ router.get('/', (req, res) => {
 
 // GET /users/author
 router.get('/author', (_, res) => {
-  res.render('author', { author: 'JOSE LUIS Y DIANA' });
+  res.render('author', { uthor: 'JOSE LUIS Y DIANA' });
 });
 
 export default router;
