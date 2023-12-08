@@ -1,7 +1,5 @@
 import log from '../../config/winston';
-// Importando el modelo
 import BookModel from './book.model';
-
 const addBook = async (req, res) => {
   // Rescatando la info del formulario
   const { errorData: validationError } = req;
@@ -48,7 +46,6 @@ const addBook = async (req, res) => {
 const addForm = (req, res) => {
   res.render('book/addView');
 };
-
 const edit = async (req, res) => {
   // Extrayendo el id por medio de los parametros de url
   const { id } = req.params;
@@ -70,7 +67,6 @@ const edit = async (req, res) => {
     return res.status(500).json(error);
   }
 };
-
 const editPut = async (req, res) => {
   const { id } = req.params;
   // Rescatando la info del formulario
@@ -122,13 +118,12 @@ const editPut = async (req, res) => {
 };
 
 const deleteBook = async (req, res) => {
-  // Extrayendo el id de los parametros
   const { id } = req.params;
   // Usando el modelo para borrar el proyecto
   try {
     const result = await BookModel.findByIdAndRemove(id);
     // Agregando mensaje de flash
-    req.flash('successMessage', 'Proyecto borrado con exito');
+    req.flash('successMessage', 'Libro borrado con exito');
     return res.status(200).json(result);
   } catch (error) {
     return res.status(500).json(error);
