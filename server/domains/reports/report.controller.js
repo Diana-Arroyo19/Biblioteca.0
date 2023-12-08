@@ -1,5 +1,6 @@
 import path from 'path';
 
+const report = (req, res) => {
   // Ruta al archivo PDF en el servidor
   const pdfPath = path.join(__dirname, '../../../public/document/download_money.pdf');
   console.log(pdfPath);
